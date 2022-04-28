@@ -3,15 +3,12 @@
 
 #include "driver.h"
 
-class Gpio : public Driver
+class IGpio
 {
-protected:
-    Gpio(const char *dev_name) : ::Driver(dev_name)
-    {
-    }
-
 public:
     virtual void write(void) = 0;
 };
+
+DRIVER_DECLARE(Gpio, IGpio);
 
 #endif

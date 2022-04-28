@@ -1,10 +1,10 @@
 #include <gpio.h>
 #include <iostream>
 
-class Gpio_2 : public Gpio
+DRIVER_IMPLEMENT(Gpio_2, IGpio)
 {
 public:
-    Gpio_2(const char *dev_name) : ::Gpio(dev_name) {}
+    Gpio_2(const char *dev_name) : ::Driver(dev_name) {}
 
     void write(void)
     {

@@ -15,4 +15,10 @@ public:
     const char *get_name(void);
 };
 
+#define DRIVER_DECLARE(_driver_type, _interface)          \
+    class _driver_type : public Driver, public _interface \
+    {                                                     \
+    }
+#define DRIVER_IMPLEMENT(_driver_type, _interface) class _driver_type : public Driver, public _interface
+
 #endif
