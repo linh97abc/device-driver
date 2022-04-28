@@ -6,7 +6,6 @@ class Driver
 protected:
     const char *__name;
     Driver *__next;
-    static Driver *__begin;
 
     Driver(const char *dev_name);
     ~Driver() = default;

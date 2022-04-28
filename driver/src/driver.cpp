@@ -2,7 +2,7 @@
 
 static int compare_string(const char *s1, const char *s2);
 
-Driver *Driver::__begin = nullptr;
+static Driver *__begin = nullptr;
 
 Driver *Driver::get_binding(const char *dev_name)
 {
