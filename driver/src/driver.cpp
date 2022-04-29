@@ -27,11 +27,6 @@ Driver *Driver::get_binding(const char *dev_name)
     return nullptr;
 }
 
-const char *Driver::get_name(void)
-{
-    return this->__name;
-}
-
 static int compare_string(const char *s1, const char *s2)
 {
     while (*s1 && *s2)
@@ -61,9 +56,10 @@ static int compare_string(const char *s1, const char *s2)
     return 0;
 }
 
-Driver::Driver(const char *dev_name)
+Driver::Driver(int dev_type, const char *dev_name)
 {
     this->__name = dev_name;
+    this->__type = dev_type;
 
     if (!__begin)
     {

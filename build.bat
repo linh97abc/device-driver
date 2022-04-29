@@ -1,0 +1,1 @@
+g++ -g -o main.exe -Idriver\inc main.cpp  driver\src\driver.cpp  driver\src\gpio\gpio_init.cpp
