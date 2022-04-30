@@ -3,13 +3,16 @@
 
 #include "driver.h"
 
-class IUart
+namespace driver
 {
-public:
-    virtual void send(void) = 0;
-};
+    class IUart
+    {
+    public:
+        virtual void send(void) = 0;
+    };
 
-using Uart = Driver_decl<IUart, UART_TYPE>;
-using Uart_ptr = Driver_ref<Uart>;
+    using Uart = Driver_decl<IUart, UART_TYPE>;
+    using Uart_ptr = Driver_ref<Uart>;
+}
 
 #endif

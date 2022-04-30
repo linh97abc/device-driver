@@ -1,10 +1,10 @@
 #include <gpio.h>
 #include <iostream>
 
-class Gpio_2 : public Gpio
+class Gpio_2 : public driver::Gpio
 {
 public:
-    DRIVER_PUBLIC_CONTRUCTOR(Gpio_2, Gpio)
+    DRIVER_PUBLIC_CONTRUCTOR(Gpio_2, driver::Gpio)
 
     void write(void)
     {

@@ -1,10 +1,10 @@
 #include <uart.h>
 #include <iostream>
 
-class Uart_2 : public Uart
+class Uart_2 : public driver::Uart
 {
 public:
-    DRIVER_PUBLIC_CONTRUCTOR(Uart_2, Uart)
+    DRIVER_PUBLIC_CONTRUCTOR(Uart_2, driver::Uart)
 
     void send(void)
     {
