@@ -56,7 +56,7 @@ static int compare_string(const char *s1, const char *s2)
     return 0;
 }
 
-Driver::Driver(int dev_type, const char *dev_name)
+Driver::Driver(Driver_type dev_type, const char *dev_name)
 {
     this->__name = dev_name;
     this->__type = dev_type;

@@ -9,7 +9,7 @@ public:
     virtual void write(void) = 0;
 };
 
-using Gpio = Driver_decl<IGpio, 1>;
+using Gpio = Driver_decl<IGpio, GPIO_TYPE>;
 using Gpio_ptr = Driver_ref<Gpio>;
 
 #endif

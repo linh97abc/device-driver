@@ -1,1 +1,1 @@
-g++ -g -o main.exe -Idriver\inc main.cpp  driver\src\driver.cpp  driver\src\gpio\gpio_init.cpp
+g++ -g -o main.exe -Idriver\inc main.cpp  driver\driver.cpp  driver\gpio\gpio_init.cpp driver\uart\uart_init.cpp

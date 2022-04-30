@@ -18,9 +18,7 @@ static Gpio *_gpio[] = {
 };
 
 template<>
-Gpio **Gpio::get_list_init(int &num)
-{
-    num = sizeof(_gpio) / sizeof(_gpio[0]);
+Gpio *const *Gpio::__list_inst = &_gpio[0];
 
-    return _gpio;
-}
+template<>
+const int Gpio::__num_of_inst = sizeof(_gpio) / sizeof(_gpio[0]);

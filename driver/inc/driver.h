@@ -1,14 +1,16 @@
 #ifndef __DRIVER_H__
 #define __DRIVER_H__
+
+#include "driver_type.h"
 class Driver
 {
 private:
     const char *__name;
     Driver *__next;
-    int __type;
+    Driver_type __type;
 
 protected:
-    Driver(int dev_type, const char *dev_name);
+    Driver(Driver_type dev_type, const char *dev_name);
     virtual void init() = 0;
     ~Driver() = default;
 
@@ -68,7 +70,7 @@ public:
     }
 };
 
-template <class _If, int _dev_type>
+template <class _If, Driver_type _dev_type>
 class Driver_decl : public Driver, public _If
 {
 protected:
@@ -77,7 +79,7 @@ protected:
     }
 
 public:
-    static int type()
+    static Driver_type type()
     {
         return _dev_type;
     }
@@ -89,17 +91,16 @@ public:
         if (!did_init)
         {
             did_init = true;
-            int num;
-            Driver_decl **list = get_list_init(num);
-            for (int i = 0; i < num; i++)
+            for (int i = 0; i < __num_of_inst; i++)
             {
-                list[i]->init();
+                __list_inst[i]->init();
             }
         }
     }
 
 private:
-    static Driver_decl **get_list_init(int &num);
+    static const int __num_of_inst;
+    static Driver_decl *const *__list_inst;
 };
 
 #define DRIVER_PUBLIC_CONTRUCTOR(dev_impl, dev_type) \
