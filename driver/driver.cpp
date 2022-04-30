@@ -1,11 +1,8 @@
 #include <driver.h>
 namespace driver
 {
-
-    static int compare_string(const char *s1, const char *s2);
-
     static Driver *__begin = nullptr;
-
+#if CONFIG_HAS_LIST_DRIVER
     Driver *Driver::get_binding(const char *dev_name)
     {
         Driver *iter = __begin;
@@ -28,8 +25,9 @@ namespace driver
 
         return nullptr;
     }
+#endif
 
-    static int compare_string(const char *s1, const char *s2)
+    int compare_string(const char *s1, const char *s2)
     {
         while (*s1 && *s2)
         {
@@ -62,7 +60,7 @@ namespace driver
     {
         this->__name = dev_name;
         this->__type = dev_type;
-
+#if CONFIG_HAS_LIST_DRIVER
         if (!__begin)
         {
             __begin = this;
@@ -104,6 +102,7 @@ namespace driver
                 }
             }
         }
+#endif
     }
 
 }
